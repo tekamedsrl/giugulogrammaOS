@@ -1,0 +1,55 @@
+<html>
+          <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <body>
+ 
+        <!-- Main menu-->
+        <div class="w3-row  w3-center w3-black">
+            <div class="w3-col s2">
+                <a href='main.php' style="color:white;">
+                    <h2>Home</h2>
+                </a>
+            </div>
+            <div class="w3-col s8">&nbsp;</div>
+            <div class="w3-col s2">
+                <a href='imagej.html' style="color:white;">
+                    <h2>Install</h2>
+                </a>
+            </div>
+        </div>
+        <!-- Main menu-->
+    <h2>Download</h2>
+    <ul>
+      <li>Get <a href='https://imagej.nih.gov/ij/download.html'>ImageJ</a></li>
+      <li>Get <a href='https://github.com/francescosisini/jvpttsa/blob/master/TM_RTJVP01.java'>Realtime acquisition plugin</a></li>
+      <li>Get <a href='https://github.com/francescosisini/jvpttsa/blob/master/USJD_20.java'>Off-line processing plugin</a></li>
+    </ul>
+    <h3>Realtime acquisition plugin</h3>
+     <ul>
+      <li>Directional keys to center the IJV</li>
+      <li><b>x</b> to increase IJV wall treshold</li>
+      <li><b>z</b> to decrease IJV wall treshold</li>
+      <li><b>s</b> to increase detection radius</li>
+      <li><b>a</b> to increase detection radius</li>
+      <li><b>p</b> freez/start image to make image measurement</li>
+      <li><b>r</b> start/stop JVP acquisition</li>
+      <li><b>e</b> start/stop ECG acquisition </li>
+      <li><b>u</b> upload acquired data</li>
+     </ul>
+     <h3>Acquisition procedure</h3>
+     <ul>
+       <li>In a PC open a window and manage to captures Eco images in realtime. Move the window to the top left corner fo the screen.</li>
+       <li>Start ImageJ and create a new Image 500x500 named JVP</li>
+       <li>Launch TM_RTJVP</li>
+       <li>Freez the Eco acquisition and pause the TM_RTJVP using p key</li>
+       <li>Measure 1 cm of the Freeze Eco image graduate scale using ImageJ tools</li>
+       <li>Open parameter window pressing t key</li>
+       <li>Set pixel per cm</li>
+       <li>Start the acquisition pressing p again then star the echography too</li>
+       <li>Click at center of the internal jugualr vein</li>
+       <li>Adjust grey level treshold using z and x. Adjust the scan ray length using a and s keys.</li>
+       <li>Make that ecg red cursor be on the bottom right corner</li>
+       <li>Start diagram recording using r and stop using r again</li>
+       <li>Upload data to the server using u kay. Set StudyID. Set repository name accordling with existing repository. Press OK to upload.</li>
+     </ul>
+  </body>
+</html>

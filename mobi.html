@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<script>
+  var app = angular.module("myShoppingList", []);
+  
+  app.controller("myCtrl", function($scope) {
+  $scope.scelta="Prestazione";
+  $scope.products = ["Diagnostica per immagini","Visite","Terapie","Assistenza","Esami di laboratorio","Prestazioni multiple"];
+  
+  $scope.cercaEsame = function () {
+  $scope.scelta="Esami";
+  $scope.errortext = "";
+  if (!$scope.addMe) {return;}
+  if ($scope.products.indexOf($scope.addMe) == -1) {
+  $scope.products = ["Ecografia addome", "Ecografaia tiroide", "Ecografia cutanea","Ecografia Doppler"];
+  } 
+  }
+  
+  $scope.home=function(){
+  $scope.scelta="Prestazione";
+  $scope.products = ["Diagnostica per immagini","Visite","Terapie","Assistenza","Esami di laboratorio","Prestazioni multiple"];
+  };
+  $scope.removeItem = function (x) {
+  $scope.errortext = "";    
+  $scope.products.splice(x, 1);
+  }
+
+  $scope.showAll=function (x) {
+  $scope.istro="";
+  if($scope.scelta=="Prestazione")
+  {
+  if(x==4 || x==5)
+  {
+  $scope.istro="Per esami del sangue o richieste di esami da eseguire contemporaneamente, caricare una foto della ricetta o della prescrizione libera.... verrete contattai entro 24 ore";
+  $scope.scelta="Esami";
+  $scope.products = ["Upload"];
+  }
+  else{
+  $scope.scelta="Esami";
+  $scope.products = ["Ecografia addome", "Ecografaia tiroide", "Ecografia cutanea","Ecografia Doppler","Radiografia piede","Radiografia mano"];
+  }
+  }
+  else if($scope.scelta=="Esami")
+  {
+  $scope.scelta="Scelta";
+  $scope.products = ["Prima disponibilita", "Scelta del professioista"];
+  
+  }
+  else if($scope.scelta=="Scelta")
+  {
+  $scope.scelta="Scelta";
+  $scope.products = ["Dott. Paolo Colamussi", "Dott. Melchiorre Giganti"];
+  
+  }
+}
+});
+</script>
+<center>
+<div ng-app="myShoppingList" ng-cloak ng-controller="myCtrl" class="w3-card-2 w3-margin" style="max-width:750px;">
+  <header class="w3-container w3-light-grey w3-padding-16">
+    
+    <div class="w3-col s12">
+    <h4 style="font-size:14;text-align:center;">MobiDoc Diagnosi Assistenza e Cura</h4>
+    <h3 style="font-size:18;text-align:center;font-color:blue;">{{scelta}}</h3>
+    </div>
+   
+  </header>
+  <div class="w3-red">{{istro}}
+    </div>
+  <ul class="w3-ul">
+    <li style="text-align:left;" ng-repeat="x in products" class="w3-padding-16">{{x}}<span ng-click="showAll($index)" style="cursor:pointer;" class="w3-right w3-margin-right">+</span></li>
+  </ul>
+  <div class="w3-container w3-light-grey w3-padding-16">
+    <div class="w3-row w3-margin-top">
+      <div class="w3-col s6">
+        <input placeholder="Cerca direttamente qui" ng-model="addMe" class="w3-input w3-border w3-padding">
+      </div>
+      <div class="w3-col s6">
+        <button ng-click="cercaEsame()" class="w3-btn w3-padding w3-green">Cerca</button>
+        <button ng-click="home()" class="w3-btn w3-padding w3-green">Home</button>
+      </div>
+     
+    </div>
+    <p class="w3-text-red">{{errortext}}</p>
+  </div>
+</div>
+</center>
+</body>
+</html>
